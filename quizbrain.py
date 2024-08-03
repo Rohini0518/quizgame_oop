@@ -11,24 +11,21 @@ class QuizBrain:
                
     def next_question(self):
         current_question=self.question_list[self.question_number]
+        crct_answer=current_question.correct_answer
         self.question_number+=1
-        ques=input(f"Q.{self.question_number}: {current_question.question}.(True/False)?: ")
-        if ques==current_question.correct_answer:
-            self.score+=+1
+        user_answer=input(f"Q.{self.question_number}: {current_question.question}.(True/False)?: ").lower()
+        self.check_answer(user_answer,crct_answer)
+        
+        
+    def check_answer(self,user_answer,crct_answer):
+        if user_answer==crct_answer.lower():
+            self.score+=1
             print("Well Done!! ,You guessed it right")    
-            print(f"The correct answer is {current_question.correct_answer}")
-            print(f"your score is {self.score}/{self.question_number}")
-            return True
         else:
             print("Wrong answer")    
-            print(f"The correct answer is {current_question.correct_answer}")
-            print(f"your score is {self.score}/{self.question_number}")
-            return False
-        
-# new_q=Question("rohini",True)   
-# new_q2=Question("ram",False)   
-# que_list=[new_q,new_q2]
-# ram=QuizBrain( que_list )
-# ram.next_question()
+        print(f"The correct answer is {crct_answer}")
+        print(f"your score is {self.score}/{self.question_number}")
+        print("\n")
+
 
    
