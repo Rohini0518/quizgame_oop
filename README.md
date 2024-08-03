@@ -1,0 +1,1 @@
+This is basic game using oops concepts , files created using class and objects ,creating methods and attributes in classes are quite challanging and on the other hand its very fun creating a quiz game.
